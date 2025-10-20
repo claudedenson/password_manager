@@ -15,6 +15,8 @@ def store_credentials():
         with open(file_name, "a") as file:
             file.write(f"{encrypted_record}\n")
 
+        print(f"New record added successfully.")
+
     else:
         print(f"The file '{file_name}' does not exist. It will be created.")
         
