@@ -13,7 +13,7 @@ def store_credentials():
     password = input("Enter your password:")
     url = input("Enter URL/resource:")
     
-    encrypted_password = rot3.rot3_encrypt(password)
+    encrypted_password = rot3.rot3_cypher(password, 3)
 
     if os.path.exists(FILE_NAME):
         # Add new record
@@ -41,4 +41,4 @@ def view_credentials():
     with open(FILE_NAME, "r") as file:
         for line in file.readlines():
             data = re.split(",", line)
-            print(f"username: {data[0]}, password: {rot3.rot3_decrypt(data[1])}, url: {data[2]}")
+            print(f"username: {data[0]}, password: {rot3.rot3_cypher(data[1], -3)}, url: {data[2]}")
